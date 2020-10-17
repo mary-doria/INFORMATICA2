@@ -34,7 +34,7 @@ int main()
             if(y < HD+ 0.05*d && y > HD-0.05*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE HD-0.05d y HD+0.05d
                 cout<<"Colisiona"<<endl;
                 contador1 += 1;
-                cout<<"Velocidad fue"<<v;
+                cout<<"Velocidad fue"<<v<<endl;
                 cout<<"Tiempo es "<<t<<endl;
                 cout<<"Y es "<<y<<endl;
             }
