@@ -5,14 +5,14 @@ using namespace std;
 
 int main()
 {
-    int HO,HD,d,aO,aD,opcion,t,v;
+    int HO,HD,d,aO,aD,opcion,t,v;//PARAMETROS DE ENTRADA
 
-    cout<<"Ingrese HO"<<endl;
-    cin>>HO;
-    cout<<"Ingrese HD"<<endl;
-    cin>>HD;
-    cout<<"Ingrese d"<<endl;
-    cin>>d;
+    cout<<"Ingrese HO:"<<endl;//ALTURA A LA QUE ESTA EL CAÑON OFENSIVO
+    cin>>HO;//ENTRADA DEL CAÑON OFENSIVO AL PROGRAMA
+    cout<<"Ingrese HD:"<<endl;//ALTURA DEL CAÑON DEFENSIVO
+    cin>>HD;//ENTRADA DEL CAÑON DEFENSIVO AL PROGRAMA
+    cout<<"Ingrese d:"<<endl;//ENTRADA DE LA DISTANCIA DE LA POSICION DE LOS 2 CAÑONES
+    cin>>d;//ENTRADA DE LA DISTANCIA AL PROGRAMA
 
     cout<<"Elija una opcion"<<endl;
     cout<<"1. Generar disparos (al menos tres) ofensivos que comprometan la integridad del cañón defensivo"<<endl;
@@ -23,19 +23,21 @@ int main()
 
     switch(opcion){
         case 1:
-        cout<<"Ingrese la velocidad de la bala"<<endl;
+        cout<<"Ingrese la velocidad de la bala:"<<endl;//VELOCIDAD INICIAL DE LA BALA
         cin>>v;
-        cout<<"Ingrese aO"<<endl;
-        cin>>aO;
+        cout<<"Ingrese aO(ingresa en radianes):"<<endl;//ANGULO DEL CAÑON ATACANTE
+        cin>>aO;//ENTRA EL ANGULO DEL CAÑON ATACANTE
         //cout<<"Ingrese aD"<<endl;
         //cin>>aD;
-        t = v*cos(aO)/d;
-        cout<<t<<endl;
-        if(HD == HO + v*sin(aO)t - t*t(9.8/2)){
+        t = v*cos(aO)/d;//PARA HALLAR EL TIEMPO
+        y = HO + v*sin(aO)*t - t*t*(9.8/2);//COMPONENTE EN Y DE LA FORMULA DEL TIRO PARABOLICO
+        if(y < HD+ 0.05*d && y > HD-0.05*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE HD-0.05d y HD+0.05d
             cout<<"Colisiona"<<endl;
         } else {
             cout<<"No colisiona"<<endl;
         }
+
+
 
     }
 
