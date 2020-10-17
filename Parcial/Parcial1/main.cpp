@@ -23,7 +23,7 @@ int main()
     cin>>opcion;
 
     switch(opcion){
-        case 1:
+    case 1:
         cout<<"Ingrese aO(ingresa en radianes):"<<endl;//ANGULO DEL CAÑON ATACANTE
         cin>>aO;//ENTRA EL ANGULO DEL CAÑON ATACANTE
         int contador1=0;
@@ -39,6 +39,7 @@ int main()
                 cout<<"Y es "<<y<<endl;
             }
         }
+
 
 
 
