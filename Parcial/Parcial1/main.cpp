@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    int HO,HD,d,aO,aD,opcion,t,v;//PARAMETROS DE ENTRADA
+    float HO,HD,d,aO,aD,y,t,v;//PARAMETROS DE ENTRADA
+    int opcion;
 
     cout<<"Ingrese HO:"<<endl;//ALTURA A LA QUE ESTA EL CAÑON OFENSIVO
     cin>>HO;//ENTRADA DEL CAÑON OFENSIVO AL PROGRAMA
@@ -23,18 +24,20 @@ int main()
 
     switch(opcion){
         case 1:
-        cout<<"Ingrese la velocidad de la bala:"<<endl;//VELOCIDAD INICIAL DE LA BALA
-        cin>>v;
         cout<<"Ingrese aO(ingresa en radianes):"<<endl;//ANGULO DEL CAÑON ATACANTE
         cin>>aO;//ENTRA EL ANGULO DEL CAÑON ATACANTE
-        //cout<<"Ingrese aD"<<endl;
-        //cin>>aD;
-        t = v*cos(aO)/d;//PARA HALLAR EL TIEMPO
-        y = HO + v*sin(aO)*t - t*t*(9.8/2);//COMPONENTE EN Y DE LA FORMULA DEL TIRO PARABOLICO
-        if(y < HD+ 0.05*d && y > HD-0.05*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE HD-0.05d y HD+0.05d
-            cout<<"Colisiona"<<endl;
-        } else {
-            cout<<"No colisiona"<<endl;
+        int contador1=0;
+        while(contador1<3){
+            v = rand()%100;//VELOCIDAD INICIAL DE LA BALA OFENSIVA
+            t = v*cos(aO)/d;//PARA HALLAR EL TIEMPO
+            y = HO + v*sin(aO)*t - t*t*(9.8/2);//COMPONENTE EN Y DE LA FORMULA DEL TIRO PARABOLICO
+            if(y < HD+ 0.05*d && y > HD-0.05*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE HD-0.05d y HD+0.05d
+                cout<<"Colisiona"<<endl;
+                contador1 += 1;
+                cout<<"Velocidad fue"<<v;
+                cout<<"Tiempo es "<<t<<endl;
+                cout<<"Y es "<<y<<endl;
+            }
         }
 
 
