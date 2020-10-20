@@ -4,7 +4,7 @@
 using namespace std;
 
 void generar_disparo(float HO,float HD, float d,float radio, bool ofensivo);
-//void generar_disparo_defensivo(float HO,float HD, float d,float radio, bool ofensivo);
+void generar_disparo_defensivo(float HO,float HD, float d,float radioOfensivo, float radioDefensivo);
 
 int main()
 {//EN EL OFENSIVO SERIA (0,H0) EN EL DEFENSIVO SERIA(D,HD)
@@ -30,10 +30,10 @@ int main()
       generar_disparo(HO,HD,d,0.05,true);}
         break;
      case 2:{
-      generar_disparo(HO,HD,d,0.025,false);}
+      generar_disparo(HD,HO,d,0.025,false);}
         break;
       case 3:{
-      //generar_disparo_defensivo();
+      generar_disparo_defensivo(HO,HD,d,0.05,0.025);
       }
 
     }}
@@ -70,31 +70,47 @@ void generar_disparo(float HO,float HD, float d,float radio, bool ofensivo){
           break;
         }}}
 
-void generar_disparo_defensivo(float HO,float HD, float d,float radio, bool ofensivo){
+void generar_disparo_defensivo(float HO,float HD, float d,float radioOfensivo, float radioDefensivo){
     float a, v, t, y;
-    float ad, vd, t1;
+    float ad, vd, t1, yO, yD;
     int contador1=0;
+    int contador2=0;
     for(float i=0;i<20;i+=1){
       a = (3.1416/2)*(i/20);//ANGULO DEL CAÑON ATACANTE ENTRE 0 Y 90° CON INCREMENTOS DE 5°
       for(float j=0;j<20;j+=1){
         v = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA OFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
         t = d/(v*cos(a));//PARA HALLAR EL TIEMPO EN LA COMPONENTE X SEGUN LA FORMULA DEL MOVIEMIENTO PARABOLICO
         y = HO + (v*sin(a)*t) - (t*t*(9.8/2));//COMPONENTE EN Y DE LA FORMULA DEL TIRO PARABOLICO
-        if(y < HD+ radio*d & y > HD-radio*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
+        if(y < HD+ radioOfensivo*d & y > HD-radioOfensivo*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
         //SE DA A ENTENDER SI LA ALTURA DE LA BALA ESTA A 0.05*d O MENOS DEL CAÑON DEFENSOR
-        cout<<"Colisiona"<<endl;
+
         contador1 += 1;
-        cout<<"Angulo fue:"<<a<<endl;
-        cout<<"Velocidad fue:"<<v<<endl;
-        cout<<"Tiempo es :"<<t<<endl;
-        cout<<"La posicion en Y es: "<<y<<endl;//ALTURA DE LA BALA OFENSIVA
 
         for(float m=0;m<20;m+=1){
             ad = (3.1416/2)*(m/20);//ANGULO DEL CAÑON DEFENSOR ENTRE 0 Y 90° CON INCREMENTOS DE 5°
             for(float n=0;n<20;n+=1){
-                vd = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA DEFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
-                t1=(d-vd*cos(ad)*2.5)/((v*cos(a)+vd*cos(ad)));
-                y
+                if(contador2<3){
+                    vd = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA DEFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
+                    t1=(d+vd*cos(ad)*(2.5))/((v*cos(a)+vd*cos(ad)));
+                    yO = HO + (v*sin(a)*t1) - (t1*t1*(9.8/2));
+                    yD = HD + (vd*sin(ad)*t1) - (t1*t1*(9.8/2));
+                    cout<<"Posicion yd "<<yD<<" yO "<<yO<<endl;
+                    if ((yO < yD+ radioDefensivo*d) & (yO > yD-radioDefensivo*d)){
+                        cout<<"Colisiona"<<endl;
+                        cout<<"Ha destruido la bala ofensiva"<<endl;
+                        cout<<"Angulo de la bala defensiva fue:"<<ad<<endl;
+                        cout<<"Velocidad de la bala defensiva fue:"<<vd<<endl;
+                        cout<<"Tiempo de encuentro es :"<<t1<<endl;
+                        cout<<"La posicion del encuentro en Y es: "<<yD<<endl;//ALTURA DE LA BALA OFENSIVA
+                        contador2+=1;
+                    }
+                }
+                if(contador2==3){
+                    break;
+                }
+            }
+            if(contador2==3){
+                break;
             }
         }
 
