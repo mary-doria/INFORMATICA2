@@ -1,8 +1,8 @@
 #ifndef CANNON_H
 #define CANNON_H
-#include <objetoFisico.h>
 
-class Cannon:public ObjetoJuego
+
+class Cannon:public ObjetoFisico
 {
 public:
     Cannon();

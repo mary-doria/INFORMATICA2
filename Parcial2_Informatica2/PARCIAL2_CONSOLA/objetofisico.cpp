@@ -1,6 +1,6 @@
 #include "objetofisico.h"
 
-objetoFisico::objetoFisico()
+ObjetoFisico::ObjetoFisico()
 {
 
 }
