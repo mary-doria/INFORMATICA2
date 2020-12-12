@@ -97,7 +97,7 @@ void generar_disparo_defensivo(float HO,float HD, float d,float radioOfensivo, f
             for(float n=0;n<20;n+=1){
                 if(contador2<3){
                     vd = (100/20)*n;//VELOCIDAD INICIAL DE LA BALA DEFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
-                    t1=(d+vd*cos(ad)*(2.5))/((v*cos(a)+vd*cos(ad)));
+                    t1=(d+vd*cos(ad)*(2.5))/((v*cos(a)+vd*cos(ad)));//
                     yO = HO + (v*sin(a)*t1) - (t1*t1*(9.8/2));
                     yD = HD + (vd*sin(ad)*t1) - (t1*t1*(9.8/2));
                     //cout<<"Posicion yd "<<yD<<" yO "<<yO<<endl;
