@@ -47,7 +47,7 @@ int main()
         bool colisiona = cannon_ofensivo->generarDisparo3(cannon_defensivo, 0.05, 0.025, 1);
       }
         break;
-    case 4:{
+    case 4:{cout<<"NO SE REALIZO"<<endl;
       ;
       }
     case 5:{
