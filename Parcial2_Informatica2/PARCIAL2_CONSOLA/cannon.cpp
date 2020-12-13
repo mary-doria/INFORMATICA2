@@ -47,14 +47,58 @@ bool Cannon::generarDisparo(Cannon *cannonObjetivo, float radio, bool ofensivo)
 }
 bool Cannon::generarDisparo3(Cannon *cannonObjetivo, float radioO, float radioD, bool ofensivo)
 {
-  Bullet *bullet, *bulletSimulada, *bulletDefensiva;
-  float a, v, t, y, d, ad, vd;
-  int contador1=0;
-  int contador2=0;
-  for(float i=0;i<20;i+=1){
-    a = (3.1416/2)*(i/20);//ANGULO DEL CAÑON ATACANTE ENTRE 0 Y 90° CON INCREMENTOS DE 5°
-    for(float j=0;j<20;j+=1){
-    v = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA OFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
-    if(contador1<3){
-      bullet = new Bullet(a, v, this->getX(), this->getY());
-      d = abs(this->getX()-cannonObjetivo->getX());}}}}
+    {
+      Bullet *bullet, *bulletSimulada, *bulletDefensiva;
+      float a, v, t, y, d, ad, vd;
+      int contador1=0;
+      int contador2=0;
+      for(float i=0;i<20;i+=1){
+        a = (3.1416/2)*(i/20);//ANGULO DEL CAÑON ATACANTE ENTRE 0 Y 90° CON INCREMENTOS DE 5°
+        for(float j=0;j<20;j+=1){
+        v = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA OFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
+        if(contador1<3){
+          bullet = new Bullet(a, v, this->getX(), this->getY());
+          d = abs(this->getX()-cannonObjetivo->getX());
+          bullet->recorrerDistanciaX(d);
+              if(bullet->detectarColision((ObjetoFisico *)cannonObjetivo, radioO, d)){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
+                for(float m=0; m<20; m+=1){
+                    ad = (3.1416/2)*(m/20);
+                    for(float n=1;n<20;n+=1){
+                        if(contador2<3){
+                        vd = (100/20)*n;
+                        bulletSimulada = new Bullet(a, v, this->getX(), this->getY());//Creo una bala simulada ofensiva
+                        bulletDefensiva = new Bullet(ad, -vd, cannonObjetivo->getX(), cannonObjetivo->getY());//Creo una bala defensiva
+                            /*Tiempo de encuentro de la bala Simulada Ofensiva con la Defensiva
+                                x0 = 0 + v*cos(a)*t = v*cos(a)*t
+                                x1 = d - vd*cos(ad)*(t+2) = d - vd*cos(ad)*t - vd*cos(ad)*2
+                                x0=x1
+                                v*cos(a)*t = d - vd*cos(ad)*t - vd*cos(ad)*2
+                                v*cos(a)*t + vd*cos(ad)*t = d - vd*cos(ad)*2
+                                t*(v*cos(a) + vd*cos(ad)) = d - vd*cos(ad)*2
+                                t = (d - vd*cos(ad)*2)/(v*cos(a) + vd*cos(ad))*/
+                        t = (d-vd*cos(ad)*(2.5))/((v*cos(a)+vd*cos(ad)));//Tiempo de encuentro de las dos balas
+                        bulletSimulada->recorrerDistanciaT(t);
+                        bulletDefensiva->recorrerDistanciaT(t);
+                        if(bulletSimulada->detectarColision((ObjetoFisico *)bulletDefensiva, radioD, d)){
+                            cout<<"Colisiona"<<endl;
+                            cout<<"Angulo fue:"<<a<<endl;
+                            cout<<"Velocidad fue:"<<v<<endl;
+                            cout<<"Ha destruido la bala ofensiva"<<endl;
+                            cout<<"Angulo de la bala defensiva fue:"<<ad<<endl;
+                            cout<<"Velocidad de la bala defensiva fue:"<<vd<<endl;
+                            cout<<"Tiempo de encuentro es :"<<t<<endl;
+                            cout<<"La posicion del encuentro en Y es: "<<bulletDefensiva->getY()<<endl;//ALTURA DE LA BALA OFENSIVA
+                            contador2+=1;
+                            }
+                        }
+                        if(contador2==3){
+                            break;
+                        }
+                    }
+                }
+                if(contador2==3){
+                    break;
+                }
+              }
+}
+        }}}}
