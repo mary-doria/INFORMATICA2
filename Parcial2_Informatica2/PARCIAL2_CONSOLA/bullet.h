@@ -11,7 +11,7 @@ class Bullet:public ObjetoFisico
 public:
     Bullet();
     Bullet(float aInicial_,float vInicial_,float x_,float y_);
-    bool detectarColision(Cannon *cannon_objetivo, float radio, float d);
+    bool detectarColision(ObjetoFisico *objetoFisico, float radio, float d);
     void recorrerDistanciaX(float d);
     float getT() const;
     void setT(float value);

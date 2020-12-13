@@ -1,5 +1,6 @@
 #include "cannon.h"
 #include "bullet.h"
+#include "objetofisico.h"
 #include <cmath>
 #include <iostream>
 
@@ -25,7 +26,7 @@ bool Cannon::generarDisparo(Cannon *cannonObjetivo, float radio, bool ofensivo)
       d = abs(this->getX()-cannonObjetivo->getX());
 
       bullet->recorrerDistanciaX(d);
-          if(bullet->detectarColision(cannonObjetivo, radio, d)){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
+          if(bullet->detectarColision((ObjetoFisico *)cannonObjetivo, radio, d)){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
           //SE DA A ENTENDER SI LA ALTURA DE LA BALA ESTA A (0.05*d o 0.025*d) O MENOS DEL CAÑON DEFENSOR
           cout<<"Colisiona"<<endl;
           contador1 += 1;

@@ -20,9 +20,9 @@ Bullet::Bullet(float aInicial_,float vInicial_,float x_,float y_)
   this->setY(y_);
 }
 
-bool Bullet::detectarColision(Cannon *cannon_objetivo, float radio, float d)
+bool Bullet::detectarColision(ObjetoFisico *objetoFisico, float radio, float d)
 {
-    if(cannon_objetivo->getY() < y+ radio*d & cannon_objetivo->getY() > y-radio*d){
+    if(objetoFisico->getY() < y+ radio*d & objetoFisico->getY() > y-radio*d){
         return true;
     } else {
         return false;

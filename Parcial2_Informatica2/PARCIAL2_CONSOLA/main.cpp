@@ -31,12 +31,14 @@ int main()
     case 1:{
         Cannon * cannon_ofensivo=new Cannon(d,HO);//Crear un puntero ,que contenga la posicion del canon ofensivo
         Cannon * cannon_defensivo=new Cannon(0,HD);//Crear un puntero ,que contenga la posicion del canon defensivo
-        //Bullet * bullet_ofensiva=new Bullet(angulo, velocidad, 0, HD);
         bool colisiona = cannon_ofensivo->generarDisparo(cannon_defensivo, 0.05, 1);
 
     }
         break;
      case 2:{
+        Cannon * cannon_ofensivo=new Cannon(d,HO);//Crear un puntero ,que contenga la posicion del canon ofensivo
+        Cannon * cannon_defensivo=new Cannon(0,HD);//Crear un puntero ,que contenga la posicion del canon defensivo
+        bool colisiona = cannon_defensivo->generarDisparo(cannon_ofensivo, 0.025, 1);
      ;}
         break;
       case 3:{
