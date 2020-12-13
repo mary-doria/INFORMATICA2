@@ -1,10 +1,10 @@
 #ifndef BULLET_H
 #define BULLET_H
+#include "objetofisico.h"
 
-
-class Bullet
+class Bullet:public ObjetoFisico
 {private:
-    float vIncial;
+    float vInicial;
     float aInicial;
 public:
     Bullet();

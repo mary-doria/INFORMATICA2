@@ -9,8 +9,7 @@ class ObjetoFisico
     float y;
     string tipoObjeto;
 public:
-    ObjetoFisico();
-
+    ObjetoFisico(float x_,float y_);
     float getX() const;
     void setX(float value);
     float getY() const;
@@ -18,5 +17,6 @@ public:
     string getTipoObjeto() const;
     void setTipoObjeto(const string &value);
 };
+
 
 #endif // OBJETOFISICO_H
