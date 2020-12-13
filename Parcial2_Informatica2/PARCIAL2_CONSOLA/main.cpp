@@ -42,7 +42,9 @@ int main()
      ;}
         break;
       case 3:{
-     ;
+        Cannon * cannon_ofensivo=new Cannon(d,HO);//Crear un puntero ,que contenga la posicion del canon ofensivo
+        Cannon * cannon_defensivo=new Cannon(0,HD);//Crear un puntero ,que contenga la posicion del canon defensivo
+        bool colisiona = cannon_ofensivo->generarDisparo3(cannon_defensivo, 0.05, 0.025, 1);
       }
         break;
     case 4:{

@@ -13,6 +13,7 @@ public:
     Bullet(float aInicial_,float vInicial_,float x_,float y_);
     bool detectarColision(ObjetoFisico *objetoFisico, float radio, float d);
     void recorrerDistanciaX(float d);
+    void recorrerDistanciaT(float t);
     float getT() const;
     void setT(float value);
 };

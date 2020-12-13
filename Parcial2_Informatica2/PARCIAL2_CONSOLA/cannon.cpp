@@ -45,3 +45,16 @@ bool Cannon::generarDisparo(Cannon *cannonObjetivo, float radio, bool ofensivo)
       break;
     }}
 }
+bool Cannon::generarDisparo3(Cannon *cannonObjetivo, float radioO, float radioD, bool ofensivo)
+{
+  Bullet *bullet, *bulletSimulada, *bulletDefensiva;
+  float a, v, t, y, d, ad, vd;
+  int contador1=0;
+  int contador2=0;
+  for(float i=0;i<20;i+=1){
+    a = (3.1416/2)*(i/20);//ANGULO DEL CAÑON ATACANTE ENTRE 0 Y 90° CON INCREMENTOS DE 5°
+    for(float j=0;j<20;j+=1){
+    v = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA OFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
+    if(contador1<3){
+      bullet = new Bullet(a, v, this->getX(), this->getY());
+      d = abs(this->getX()-cannonObjetivo->getX());}}}}
