@@ -23,16 +23,17 @@ bool Cannon::generarDisparo(Cannon *cannonObjetivo, float radio, bool ofensivo)
     if(contador1<3){
       bullet = new Bullet(a, v, this->getX(), this->getY());
       d = abs(this->getX()-cannonObjetivo->getX());
-      t = d/(v*cos(a));//PARA HALLAR EL TIEMPO EN LA COMPONENTE X SEGUN LA FORMULA DEL MOVIEMIENTO PARABOLICO
-      y = this->getY() +(v*sin(a)*t) - (t*t*(9.8/2));//COMPONENTE EN Y DE LA FORMULA DEL TIRO PARABOLICO
-          if(cannonObjetivo->getY() < y+ radio*d & cannonObjetivo->getY() > y-radio*d){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
+
+      bullet->recorrerDistanciaX(d);
+          if(bullet->detectarColision(cannonObjetivo, radio, d)){//SI LA ALTURA DE LA BALA SE ENCUENTRA ENTRE (HD-0.05d y HD+0.05d) o (HD-0.025d y HD+0.025d)
           //SE DA A ENTENDER SI LA ALTURA DE LA BALA ESTA A (0.05*d o 0.025*d) O MENOS DEL CAÑON DEFENSOR
           cout<<"Colisiona"<<endl;
           contador1 += 1;
           cout<<"Angulo fue:"<<a<<endl;
           cout<<"Velocidad fue:"<<v<<endl;
-          cout<<"Tiempo es :"<<t<<endl;
-          cout<<"Y es: "<<y<<endl;//ALTURA DE LA BALA OFENSIVA
+          cout<<"Tiempo es :"<<bullet->getT()<<endl;
+          cout<<"Y es: "<<bullet->getY()<<endl;//ALTURA DE LA BALA OFENSIVA
+          cout<<"X es: "<<bullet->getX()<<endl;//DISTANCIA RECORRIDA DE LA BALA OFENSIVA
           }
       }
       if(contador1==3){
