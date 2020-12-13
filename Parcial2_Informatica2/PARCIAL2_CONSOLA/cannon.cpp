@@ -2,6 +2,6 @@
 
 Cannon::Cannon(float x_,float y_)
 {
-    this->x=x_;
-    this->y=y_;
+    this->setX(x_);
+    this->setY(y_);
 }

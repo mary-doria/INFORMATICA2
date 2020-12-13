@@ -7,6 +7,7 @@ class Cannon:public ObjetoFisico
 {
 public:
     Cannon();
+    Cannon(float x_,float y_);
 };
 
 #endif // CANNON_H

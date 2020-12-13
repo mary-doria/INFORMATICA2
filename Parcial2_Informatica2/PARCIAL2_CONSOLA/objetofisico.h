@@ -4,11 +4,12 @@
 using namespace std;
 
 class ObjetoFisico
-{private:
+{protected:
     float x;
     float y;
     string tipoObjeto;
 public:
+    ObjetoFisico();
     ObjetoFisico(float x_,float y_);
     float getX() const;
     void setX(float value);

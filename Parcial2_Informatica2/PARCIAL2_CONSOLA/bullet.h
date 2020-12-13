@@ -8,6 +8,7 @@ class Bullet:public ObjetoFisico
     float aInicial;
 public:
     Bullet();
+    Bullet(float aInicial_,float vInicial_,float x_,float y_);
 };
 
 #endif // BULLET_H

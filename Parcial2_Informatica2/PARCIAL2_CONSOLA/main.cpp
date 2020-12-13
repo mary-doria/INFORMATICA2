@@ -7,7 +7,15 @@
 using namespace std;
 
 int main()
-{int d,HD,HO;
+{
+    int d,HD,HO;
+
+    cout<<"Ingrese HO:"<<endl;//ALTURA A LA QUE ESTA EL CAÑON OFENSIVO
+    cin>>HO;//ENTRADA DEL CAÑON OFENSIVO AL PROGRAMA
+    cout<<"Ingrese HD:"<<endl;//ALTURA DEL CAÑON DEFENSIVO
+    cin>>HD;//ENTRADA DEL CAÑON DEFENSIVO AL PROGRAMA
+    cout<<"Ingrese d:"<<endl;//ENTRADA DE LA DISTANCIA DE LA POSICION DE LOS 2 CAÑONES
+    cin>>d;//ENTRADA DE LA DISTANCIA AL PROGRAMA
 
     int opcion;
         cout<<"Elija una opcion"<<endl;
