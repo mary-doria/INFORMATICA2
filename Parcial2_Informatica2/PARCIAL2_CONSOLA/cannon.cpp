@@ -101,7 +101,7 @@ bool Cannon::generarDisparo3(Cannon *cannonObjetivo, float radioO, float radioD,
 bool Cannon::generarDisparo5(Cannon *cannonObjetivo, float radioO, float radioD, bool ofensivo)
 {
   Bullet *bullet, *bulletSimulada, *bulletDefensiva, *bulletDefensivaSimulada, *bulletNeutralizadora;
-  float a, v, t, y, d, ad, vd, a3, v3;
+  float a, v, t, d, ad, vd, a3, v3;
   int contador1=0;
   int contador2=0;
   int contador3=0;

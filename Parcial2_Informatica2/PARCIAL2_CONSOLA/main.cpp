@@ -8,9 +8,9 @@ using namespace std;
 
 int main()
 {   cout<<"Recomendaciones para ingresar HO y HD:"<<endl;
-    cout<<"1.HD en el primer caso y tercer caso debe ser mayor que HO ,ya que si no lo es el angulo de "<<endl;
+    cout<<"1.HD en el primer caso , tercer caso y quinto caso debe ser mayor que HO ,ya que si no lo es el angulo de "<<endl;
     cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo "<<endl;
-    cout<<"2.HO en el segundo caso y quinto caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
+    cout<<"2.HO en el segundo caso  debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
     cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
 
 
