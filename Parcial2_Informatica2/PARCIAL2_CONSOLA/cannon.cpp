@@ -103,24 +103,16 @@ bool Cannon::generarDisparo3(Cannon *cannonObjetivo, float radioO, float radioD,
 }
         }}}}
 bool Cannon::generarDisparo5(Cannon *cannonObjetivo, float radioO, float radioD, bool ofensivo){
-    float a, v;//el angulo y v la velocidad
-    /*Tiempo de encuentro entre la bala 2 y la bala 3
-     * Implementar
-                    x2 = v3*cos(a3)*(t+1)
-                    x1 = d - vd*cos(ad)*(t) = d - vd*cos(ad)*t
-                    x2 = x1
-                    v3*cos(a3)*(t+1) = d - vd*cos(ad)*t
-                    v3*cos(a3)*t + v3*cos(a3) = d - vd*cos(ad)*t
-                    v3*cos(a3)*t + vd*cos(ad)*t = d - v3*cos(a3)
-                    t*(v3*cos(a3) + vd*cos(ad)) = d - v3*cos(a3)
-                    t = (d - v3*cos(a3)) / (v3*cos(a3) + vd*cos(ad))*/
-
-                    int contador=0;
+    float a, v, t,d;
+    //se necesitan 3 balas
+   Bullet *bullet, *bulletSimulada, *bulletDefensiva;
+    int contador=0;
                     for(float i=20;i>=0;i-=1){
                         a = (3.1416/2)*(i/20);//ANGULO DEL CAÑON ATACANTE ENTRE 0 Y 90° CON INCREMENTOS DE 5°
                         for(float j=0;j<20;j+=1){
                             v = (100/20)*j;//VELOCIDAD INICIAL DE LA BALA OFENSIVA-COGER UNA VELOCIDAD MENOR QUE 100METROS CON INCREMENTOS DE 5METROS
-                    if(contador<3){
-
+                    if(contador<3){bullet = new Bullet(a, v, this->getX(), this->getY());
+                        d = abs(this->getX()-cannonObjetivo->getX());
+                        bullet->recorrerDistanciaX(d);
                     }
                         }}}
