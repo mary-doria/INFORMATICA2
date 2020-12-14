@@ -16,6 +16,10 @@ int main()
     cin>>HD;//ENTRADA DEL CAÑON DEFENSIVO AL PROGRAMA
     cout<<"Ingrese d:"<<endl;//ENTRADA DE LA DISTANCIA DE LA POSICION DE LOS 2 CAÑONES
     cin>>d;//ENTRADA DE LA DISTANCIA AL PROGRAMA
+    cout<<"HD en el primer caso debe ser mayor que HO ,ya que si no lo es el angulo de "<<endl;
+    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo "<<endl;
+    cout<<"HO en el segundo caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
+    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
 
     int opcion;
     cout<<"Elija una opcion"<<endl;
@@ -24,7 +28,8 @@ int main()
     cout<<"3. Dado un disparo ofensivo, generar (al menos tres) disparos defensivos que impida que el canon defensivo sea destruido sin importar si el canon ofensivo pueda ser destruido"<<endl;
     cout<<"4. Dado un disparo ofensivo, generar (al emnos tres) disparo defensivos que impidan que los canones defensivo y ofensivo puedan ser destruidos"<<endl;
     cout<<"5. Dado un disparo ofensivo efectivo y un disparo defensivo que comprometa la "<<endl;
-    cout<<"efectividad del ataque ofensivo, generar (al menos tres) disparos que neutralicen el ataque defensivo y permitan que el ataque ofensivo sea efectivo."<<endl;
+    cout<<"efectividad del ataque ofensivo, generar (al menos tres) disparos que neutralicen el ataque defensivo"<<endl;
+    cout<<" y permitan que el ataque ofensivo sea efectivo."<<endl;
     cin>>opcion;
 
     switch(opcion){
@@ -51,7 +56,10 @@ int main()
       ;
       }
     case 5:{
-      ;
+        Cannon * cannon_ofensivo=new Cannon(d,HO);//Crear un puntero ,que contenga la posicion del canon ofensivo
+        Cannon * cannon_defensivo=new Cannon(0,HD);//Crear un puntero ,que contenga la posicion del canon defensivo
+        bool colisiona = cannon_ofensivo->generarDisparo5(cannon_defensivo, 0.05, 0.025, 1);
+
       }
 }}
 
