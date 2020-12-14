@@ -20,6 +20,8 @@ int main()
     cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo "<<endl;
     cout<<"HO en el segundo caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
     cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
+    cout<<"HD en el tercer caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
+    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
 
     int opcion;
     cout<<"Elija una opcion"<<endl;
