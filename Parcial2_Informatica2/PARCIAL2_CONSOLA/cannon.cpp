@@ -139,7 +139,7 @@ bool Cannon::generarDisparo5(Cannon *cannonObjetivo, float radioO, float radioD,
                                         //cout<<"Tiempo es "<<t<<endl;
                                         //cout<<"Neutralizadora se encuentra en ("<<bulletNeutralizadora->getX()<<", "<<bulletNeutralizadora->getY()<<")"<<endl;
                                         //cout<<"Defensiva se encuentra en ("<<bulletDefensivaSimulada->getX()<<", "<<bulletDefensivaSimulada->getY()<<")"<<endl;
-                                        if(bulletNeutralizadora->detectarColision((ObjetoFisico *)bulletDefensivaSimulada, radioO, d)){
+                                        if(bulletNeutralizadora->detectarColision((ObjetoFisico *)bulletDefensivaSimulada, 0.005, d)){
                                             cout<<"Bala neutralizada"<<endl;
                                             cout<<"Angulo que neutraliza fue:"<<a3<<endl;
                                             cout<<"Velocidad que neutraliza fue:"<<v3<<endl;

@@ -7,7 +7,11 @@
 using namespace std;
 
 int main()
-{
+{   cout<<"Pautas para ingresar HO y HD:"<<endl;
+    cout<<"1.HD en el primer caso y tercer caso debe ser mayor que HO ,ya que si no lo es el angulo de "<<endl;
+    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo "<<endl;
+    cout<<"2.HO en el segundo caso y quinto caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
+    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
     int d,HD,HO;
 
     cout<<"Ingrese HO:"<<endl;//ALTURA A LA QUE ESTA EL CAÑON OFENSIVO
@@ -16,12 +20,6 @@ int main()
     cin>>HD;//ENTRADA DEL CAÑON DEFENSIVO AL PROGRAMA
     cout<<"Ingrese d:"<<endl;//ENTRADA DE LA DISTANCIA DE LA POSICION DE LOS 2 CAÑONES
     cin>>d;//ENTRADA DE LA DISTANCIA AL PROGRAMA
-    cout<<"HD en el primer caso debe ser mayor que HO ,ya que si no lo es el angulo de "<<endl;
-    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo "<<endl;
-    cout<<"HO en el segundo caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
-    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
-    cout<<"HD en el tercer caso debe ser mayor que HD ,ya que si no lo es el angulo de "<<endl;
-    cout<<"disparo seria mayor de 90 grados y no tiene sentido que sea negativo" <<endl;
 
     int opcion;
     cout<<"Elija una opcion"<<endl;
